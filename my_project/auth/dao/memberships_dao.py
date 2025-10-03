@@ -4,7 +4,7 @@ class MembershipsDAO:
 
     def get_all(self):
         cursor = self.db.connection.cursor()
-        cursor.execute("SELECT * FROM Memberships")
+        cursor.execute("SELECT * FROM memberships")
         results = cursor.fetchall()
         cursor.close()
         return results
@@ -12,7 +12,7 @@ class MembershipsDAO:
     def add(self, client_id, membership_type, start_date, end_date):
         cursor = self.db.connection.cursor()
         cursor.execute(
-            "INSERT INTO Memberships (client_id, membership_type, start_date, end_date) VALUES (%s, %s, %s, %s)",
+            "INSERT INTO memberships (client_id, membership_type, start_date, end_date) VALUES (%s, %s, %s, %s)",
             (client_id, membership_type, start_date, end_date),
         )
         self.db.connection.commit()

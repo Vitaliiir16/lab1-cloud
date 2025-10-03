@@ -28,17 +28,7 @@ def create_blueprint(mysql):
     def delete(exercise_id):
         service.delete(exercise_id)
         return jsonify({"message": "Exercise deleted successfully"}), 200
-    
-    @blueprint.route("/api/v1/exercises/<int:exercise_id>/equipment", methods=["GET"])
-    def get_exercises_by_equipment(equipment_id):
-        try:
-            exercises = ExercisesDAO.get_exercises_by_equipment(equipment_id)
-            if not exercises:
-                return jsonify({"message": "No exercises found for this equipment"}), 404
-            return jsonify(exercises), 200
-        except Exception as e:
-            return jsonify({"error": str(e)}), 500
-        
+
     @blueprint.route("/<int:exercise_id>/equipment", methods=["GET"])
     def get_equipment_for_exercise(exercise_id):
         try:
@@ -48,13 +38,11 @@ def create_blueprint(mysql):
             return jsonify(equipment), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500
-        
+
     @blueprint.route("/equipment", methods=["POST"])
     def add_exercise_equipment():
         data = request.json
         service.add_exercise_equipment(data["exercise_name"], data["equipment_name"])
         return jsonify({"message": "Exercise and equipment linked successfully"}), 201
-
-
 
     return blueprint

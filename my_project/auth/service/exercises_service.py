@@ -13,7 +13,6 @@ class ExercisesService:
 
     def delete(self, exercise_id):
         self.dao.delete(exercise_id)
-        
+
     def add_exercise_equipment(self, exercise_name, equipment_name):
         self.dao.add_exercise_equipment(exercise_name, equipment_name)
-

@@ -33,7 +33,7 @@ def create_blueprint(mysql):
             return jsonify(exercises), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500
-        
+
     @blueprint.route("/exercises-with-equipment", methods=["GET"])
     def get_exercises_with_equipment():
         try:
@@ -44,8 +44,4 @@ def create_blueprint(mysql):
         except Exception as e:
             return jsonify({"error": str(e)}), 500
 
-
-
-
     return blueprint
- 

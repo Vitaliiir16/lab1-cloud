@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from my_project.auth.dao.equipment_dao import EquipmentDAO
-from my_project.auth.service.equipment_service import EquipmentService  # Змінено імпорт
+from my_project.auth.service.equipment_service import EquipmentService
 
 def create_blueprint(mysql):
     blueprint = Blueprint("equipment", __name__)
@@ -28,17 +28,16 @@ def create_blueprint(mysql):
     def delete(equipment_id):
         service.delete(equipment_id)
         return jsonify({"message": "Equipment deleted successfully"}), 200
-    
+
     @blueprint.route("/procedure", methods=["POST"])
     def add_using_procedure():
         data = request.json
         service.add_using_procedure(data["equipment_name"])
         return jsonify({"message": "Equipment added using procedure successfully"}), 201
-    
+
     @blueprint.route("/bulk_insert", methods=["POST"])
     def bulk_insert():
         service.insert_multiple_equipment()
         return jsonify({"message": "10 equipment records inserted successfully"}), 201
-
 
     return blueprint

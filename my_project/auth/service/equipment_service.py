@@ -13,11 +13,9 @@ class EquipmentService:
 
     def delete(self, equipment_id):
         self.dao.delete(equipment_id)
-        
+
     def add_using_procedure(self, equipment_name):
         self.dao.add_using_procedure(equipment_name)
-        
+
     def insert_multiple_equipment(self):
         self.dao.insert_multiple_equipment()
-
-

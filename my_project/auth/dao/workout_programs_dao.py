@@ -4,7 +4,7 @@ class WorkoutProgramsDAO:
 
     def get_all(self):
         cursor = self.db.connection.cursor()
-        cursor.execute("SELECT * FROM Workout_Programs")
+        cursor.execute("SELECT * FROM workout_programs")
         results = cursor.fetchall()
         cursor.close()
         return results
@@ -12,7 +12,7 @@ class WorkoutProgramsDAO:
     def add(self, program_name, trainer_id):
         cursor = self.db.connection.cursor()
         cursor.execute(
-            "INSERT INTO Workout_Programs (program_name, trainer_id) VALUES (%s, %s)",
+            "INSERT INTO workout_programs (program_name, trainer_id) VALUES (%s, %s)",
             (program_name, trainer_id),
         )
         self.db.connection.commit()
@@ -21,7 +21,7 @@ class WorkoutProgramsDAO:
     def update(self, workout_program_id, program_name, trainer_id):
         cursor = self.db.connection.cursor()
         cursor.execute(
-            "UPDATE Workout_Programs SET program_name = %s, trainer_id = %s WHERE workout_program_id = %s",
+            "UPDATE workout_programs SET program_name = %s, trainer_id = %s WHERE workout_program_id = %s",
             (program_name, trainer_id, workout_program_id),
         )
         self.db.connection.commit()
@@ -29,6 +29,6 @@ class WorkoutProgramsDAO:
 
     def delete(self, workout_program_id):
         cursor = self.db.connection.cursor()
-        cursor.execute("DELETE FROM Workout_Programs WHERE workout_program_id = %s", (workout_program_id,))
+        cursor.execute("DELETE FROM workout_programs WHERE workout_program_id = %s", (workout_program_id,))
         self.db.connection.commit()
         cursor.close()

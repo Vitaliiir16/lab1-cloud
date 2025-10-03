@@ -15,10 +15,12 @@ from my_project.auth.controller import (
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Vs08012006#'
-app.config['MYSQL_DB'] = 'lab3test3'
+import os
+
+app.config['MYSQL_HOST'] = os.environ.get('DB_HOST')
+app.config['MYSQL_USER'] = os.environ.get('DB_USER')
+app.config['MYSQL_PASSWORD'] = os.environ.get('DB_PASS')
+app.config['MYSQL_DB'] = os.environ.get('DB_NAME')
 
 mysql = MySQL(app)
 
@@ -34,4 +36,4 @@ app.register_blueprint(exercise_equipment_controller.create_blueprint(mysql), ur
 app.register_blueprint(memberships_controller.create_blueprint(mysql), url_prefix="/api/v1/memberships")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8080)

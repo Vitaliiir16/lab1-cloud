@@ -4,7 +4,7 @@ class TrainersDAO:
 
     def get_all(self):
         cursor = self.db.connection.cursor()
-        cursor.execute("SELECT * FROM Trainers")
+        cursor.execute("SELECT * FROM trainers")
         results = cursor.fetchall()
         cursor.close()
         return results
@@ -12,7 +12,7 @@ class TrainersDAO:
     def add(self, name, surname, phone_number):
         cursor = self.db.connection.cursor()
         cursor.execute(
-            "INSERT INTO Trainers (name, surname, phone_number) VALUES (%s, %s, %s)",
+            "INSERT INTO trainers (name, surname, phone_number) VALUES (%s, %s, %s)",
             (name, surname, phone_number),
         )
         self.db.connection.commit()
@@ -21,7 +21,7 @@ class TrainersDAO:
     def update(self, trainer_id, name, surname, phone_number):
         cursor = self.db.connection.cursor()
         cursor.execute(
-            "UPDATE Trainers SET name = %s, surname = %s, phone_number = %s WHERE trainer_id = %s",
+            "UPDATE trainers SET name = %s, surname = %s, phone_number = %s WHERE trainer_id = %s",
             (name, surname, phone_number, trainer_id),
         )
         self.db.connection.commit()
@@ -29,21 +29,14 @@ class TrainersDAO:
 
     def delete(self, trainer_id):
         cursor = self.db.connection.cursor()
-        cursor.execute("DELETE FROM Trainers WHERE trainer_id = %s", (trainer_id,))
+        cursor.execute("DELETE FROM trainers WHERE trainer_id = %s", (trainer_id,))
         self.db.connection.commit()
         cursor.close()
-        
-    def get_trainer_by_id(self, trainer_id):
-        query = "SELECT * FROM Trainers WHERE trainer_id = %s"
-        cursor = self.db.connection.cursor()
-        cursor.execute(query, (trainer_id,))
-        result = cursor.fetchone()
-        return result    
 
     def get_trainer_by_id(self, trainer_id):
         query = """
         SELECT trainer_id, name, surname, phone_number
-        FROM Trainers
+        FROM trainers
         WHERE trainer_id = %s
         """
         cursor = self.db.connection.cursor()
@@ -59,5 +52,3 @@ class TrainersDAO:
                 "phone_number": result[3],
             }
         return None
-
-

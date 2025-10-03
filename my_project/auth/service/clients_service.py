@@ -15,15 +15,13 @@ class ClientsService:
         self.dao.delete(client_id)
 
     def get_client_by_id(self, client_id):
-        """Отримати клієнта за ID через DAO."""
         return self.dao.get_client_by_id(client_id)
 
     def patch(self, client_id, updates):
-        """Часткове оновлення клієнта через DAO."""
         client = self.dao.get_client_by_id(client_id)
         if not client:
             return None
         return self.dao.patch(client_id, updates)
-    
+
     def split_table_randomly(self, parent_table):
         self.dao.split_table_randomly(parent_table)

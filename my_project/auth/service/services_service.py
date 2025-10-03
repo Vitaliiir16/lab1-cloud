@@ -13,7 +13,6 @@ class ServicesService:
 
     def delete(self, service_id):
         return self.dao.delete(service_id)
-    
+
     def get_column_stats(self, table_name, column_name, operation):
         return self.dao.get_column_stats(table_name, column_name, operation)
-
