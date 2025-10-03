@@ -1,0 +1,17 @@
+tags:
+  - Equipment
+summary: "Отримати все обладнання"
+responses:
+  200:
+    description: "Список обладнання"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          equipment_id:
+            type: integer
+            example: 1
+          equipment_name:
+            type: string
+            example: "Бігову доріжку"

@@ -1,0 +1,23 @@
+tags:
+  - Services
+summary: "Створити нову послугу"
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - service_name
+        - price
+      properties:
+        service_name:
+          type: string
+          example: "Масаж"
+        price:
+          type: number
+          example: 350.00
+responses:
+  201:
+    description: "Послугу створено"
+

@@ -1,0 +1,19 @@
+tags:
+  - Exercise-Equipment Relations
+summary: "Видалити зв'язок вправи з обладнанням"
+parameters:
+  - name: exercise_id
+    in: path
+    type: integer
+    required: true
+    example: 2
+  - name: equipment_id
+    in: path
+    type: integer
+    required: true
+    example: 3
+responses:
+  204:
+    description: "Зв'язок видалено"
+  404:
+    description: "Зв'язок не знайдено"

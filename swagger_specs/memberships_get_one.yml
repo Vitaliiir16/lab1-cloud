@@ -1,0 +1,25 @@
+tags:
+  - Memberships
+summary: "Отримати абонемент за ID"
+parameters:
+  - name: membership_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  200:
+    description: "Абонемент знайдений"
+    schema:
+      type: object
+      properties:
+        membership_id:
+          type: integer
+        client_id:
+          type: integer
+        membership_type:
+          type: string
+        start_date:
+          type: string
+        end_date:
+          type: string

@@ -1,0 +1,33 @@
+tags:
+  - Clients
+summary: "Створити нового клієнта"
+description: "Додає нового клієнта до системи"
+parameters:
+  - name: body
+    in: body
+    required: true
+    description: "Дані нового клієнта"
+    schema:
+      type: object
+      required:
+        - name
+        - surname
+        - phone_number
+      properties:
+        name:
+          type: string
+          example: "Іван"
+        surname:
+          type: string
+          example: "Петренко"
+        phone_number:
+          type: string
+          example: "380501234567"
+        trainer_id:
+          type: integer
+          example: 1
+responses:
+  201:
+    description: "Клієнта успішно створено"
+  400:
+    description: "Невірні дані"

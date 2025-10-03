@@ -1,0 +1,22 @@
+tags:
+  - Workout Programs
+summary: "Оновити програму тренувань"
+parameters:
+  - name: workout_program_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        program_name:
+          type: string
+        trainer_id:
+          type: integer
+responses:
+  200:
+    description: "Програму оновлено"

@@ -1,0 +1,29 @@
+tags:
+  - Service Schedule
+summary: "Отримати розклад всіх послуг"
+description: "Показує графік роботи кожної послуги по днях тижня"
+responses:
+  200:
+    description: "Розклад послуг"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          schedule_id:
+            type: integer
+            example: 1
+          service_id:
+            type: integer
+            example: 1
+          day_of_week:
+            type: string
+            example: "Monday"
+          open_time:
+            type: string
+            format: time
+            example: "08:00:00"
+          close_time:
+            type: string
+            format: time
+            example: "20:00:00"

@@ -1,0 +1,22 @@
+tags:
+  - Workout Programs
+summary: "Створити програму тренувань"
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - program_name
+        - trainer_id
+      properties:
+        program_name:
+          type: string
+          example: "Full Body Workout"
+        trainer_id:
+          type: integer
+          example: 1
+responses:
+  201:
+    description: "Програму створено"

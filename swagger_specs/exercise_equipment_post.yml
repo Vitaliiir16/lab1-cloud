@@ -1,0 +1,27 @@
+tags:
+  - Exercise-Equipment Relations
+summary: "Додати обладнання до вправи"
+description: "Створює зв'язок між вправою та обладнанням"
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - exercise_id
+        - equipment_id
+      properties:
+        exercise_id:
+          type: integer
+          example: 2
+          description: "ID вправи"
+        equipment_id:
+          type: integer
+          example: 3
+          description: "ID обладнання"
+responses:
+  201:
+    description: "Зв'язок створено"
+  400:
+    description: "Невірні дані або зв'язок вже існує"

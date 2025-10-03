@@ -1,0 +1,23 @@
+tags:
+  - Workout Programs
+summary: "Отримати програму тренувань за ID"
+parameters:
+  - name: workout_program_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  200:
+    description: "Програма знайдена"
+    schema:
+      type: object
+      properties:
+        workout_program_id:
+          type: integer
+        program_name:
+          type: string
+        trainer_id:
+          type: integer
+  404:
+    description: "Програму не знайдено"

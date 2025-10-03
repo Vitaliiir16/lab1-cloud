@@ -1,0 +1,20 @@
+tags:
+  - Trainer Schedule
+summary: "Оновити розклад тренера"
+parameters:
+  - name: schedule_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        day_of_week:
+          type: string
+responses:
+  200:
+    description: "Розклад оновлено"

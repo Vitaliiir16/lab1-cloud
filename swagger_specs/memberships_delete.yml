@@ -1,0 +1,12 @@
+tags:
+  - Memberships
+summary: "Видалити абонемент"
+parameters:
+  - name: membership_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  204:
+    description: "Абонемент видалено"

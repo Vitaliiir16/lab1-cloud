@@ -1,0 +1,25 @@
+tags:
+  - Service Schedule
+summary: "Отримати конкретний запис розкладу"
+parameters:
+  - name: schedule_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  200:
+    description: "Запис розкладу"
+    schema:
+      type: object
+      properties:
+        schedule_id:
+          type: integer
+        service_id:
+          type: integer
+        day_of_week:
+          type: string
+        open_time:
+          type: string
+        close_time:
+          type: string

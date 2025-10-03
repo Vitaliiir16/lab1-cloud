@@ -1,0 +1,22 @@
+tags:
+  - Services
+summary: "Отримати всі послуги"
+description: "Список послуг фітнес-клубу з цінами"
+responses:
+  200:
+    description: "Список послуг"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          service_id:
+            type: integer
+            example: 1
+          service_name:
+            type: string
+            example: "Personal Training"
+          price:
+            type: number
+            format: decimal
+            example: 500.00

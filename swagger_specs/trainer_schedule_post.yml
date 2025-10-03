@@ -1,0 +1,23 @@
+tags:
+  - Trainer Schedule
+summary: "Додати робочий день тренера"
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - trainer_id
+        - day_of_week
+      properties:
+        trainer_id:
+          type: integer
+          example: 1
+        day_of_week:
+          type: string
+          enum: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+          example: "Friday"
+responses:
+  201:
+    description: "Розклад створено"

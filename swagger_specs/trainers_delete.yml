@@ -1,0 +1,14 @@
+tags:
+  - Trainers
+summary: "Видалити тренера"
+parameters:
+  - name: trainer_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  204:
+    description: "Тренер видалений"
+  404:
+    description: "Тренер не знайдений"

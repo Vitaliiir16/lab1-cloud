@@ -1,0 +1,12 @@
+tags:
+  - Exercises
+summary: "Видалити вправу"
+parameters:
+  - name: exercise_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  204:
+    description: "Вправу видалено"

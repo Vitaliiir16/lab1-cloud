@@ -1,0 +1,30 @@
+tags:
+  - Clients
+summary: "Оновити інформацію про клієнта"
+description: "Оновлює всі дані клієнта за ID"
+parameters:
+  - name: client_id
+    in: path
+    type: integer
+    required: true
+    description: "ID клієнта"
+    example: 1
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        surname:
+          type: string
+        phone_number:
+          type: string
+        trainer_id:
+          type: integer
+responses:
+  200:
+    description: "Клієнта оновлено"
+  404:
+    description: "Клієнт не знайдений"

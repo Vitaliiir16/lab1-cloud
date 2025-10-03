@@ -1,0 +1,26 @@
+tags:
+  - Trainers
+summary: "Оновити тренера"
+parameters:
+  - name: trainer_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        surname:
+          type: string
+        phone_number:
+          type: string
+responses:
+  200:
+    description: "Тренер оновлений"
+  404:
+    description: "Тренер не знайдений"

@@ -1,0 +1,12 @@
+tags:
+  - Equipment
+summary: "Видалити обладнання"
+parameters:
+  - name: equipment_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  204:
+    description: "Обладнання видалено"

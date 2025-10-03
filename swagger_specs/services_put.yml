@@ -1,0 +1,22 @@
+tags:
+  - Services
+summary: "Оновити послугу"
+parameters:
+  - name: service_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        service_name:
+          type: string
+        price:
+          type: number
+responses:
+  200:
+    description: "Послугу оновлено"

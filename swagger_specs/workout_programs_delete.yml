@@ -1,0 +1,12 @@
+tags:
+  - Workout Programs
+summary: "Видалити програму тренувань"
+parameters:
+  - name: workout_program_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  204:
+    description: "Програму видалено"

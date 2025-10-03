@@ -1,3 +1,4 @@
+from flasgger import Swagger, swag_from
 from flask import Flask
 from flask_mysqldb import MySQL
 from my_project.auth.controller import (
@@ -14,6 +15,48 @@ from my_project.auth.controller import (
 )
 
 app = Flask(__name__)
+
+# Swagger Configuration
+swagger_config = {
+    "headers": [],
+    "specs": [
+        {
+            "endpoint": 'apispec',
+            "route": '/apispec.json',
+            "rule_filter": lambda rule: True,
+            "model_filter": lambda tag: True,
+        }
+    ],
+    "static_url_path": "/flasgger_static",
+    "swagger_ui": True,
+    "specs_route": "/apidocs/"
+}
+
+swagger_template = {
+    "info": {
+        "title": "Fitness Management API",
+        "description": "REST API для управління фітнес-клубом: клієнти, тренери, послуги, вправи, абонементи та обладнання",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Fitness Management System",
+            "url": "http://34.116.176.94:8080"
+        }
+    },
+    "host": "34.116.176.94:8080",
+    "basePath": "/api/v1",
+    "schemes": ["http"],
+    "tags": [
+        {"name": "Clients", "description": "Операції з клієнтами"},
+        {"name": "Trainers", "description": "Операції з тренерами"},
+        {"name": "Services", "description": "Операції з послугами"},
+        {"name": "Exercises", "description": "Операції з вправами"},
+        {"name": "Memberships", "description": "Операції з абонементами"},
+        {"name": "Equipment", "description": "Операції з обладнанням"}
+    ]
+}
+
+swagger = Swagger(app, config=swagger_config, template=swagger_template)
+
 
 import os
 

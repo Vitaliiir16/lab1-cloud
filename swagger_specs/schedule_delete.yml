@@ -1,0 +1,12 @@
+tags:
+  - Service Schedule
+summary: "Видалити запис розкладу"
+parameters:
+  - name: schedule_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  204:
+    description: "Розклад видалено"

@@ -1,0 +1,21 @@
+tags:
+  - Trainer Schedule
+summary: "Отримати запис розкладу тренера"
+parameters:
+  - name: schedule_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  200:
+    description: "Запис розкладу"
+    schema:
+      type: object
+      properties:
+        schedule_id:
+          type: integer
+        trainer_id:
+          type: integer
+        day_of_week:
+          type: string

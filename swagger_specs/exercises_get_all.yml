@@ -1,0 +1,20 @@
+tags:
+  - Exercises
+summary: "Отримати всі вправи"
+responses:
+  200:
+    description: "Список вправ"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          exercise_id:
+            type: integer
+            example: 1
+          exercise_name:
+            type: string
+            example: "Біг"
+          workout_program_id:
+            type: integer
+            example: 1

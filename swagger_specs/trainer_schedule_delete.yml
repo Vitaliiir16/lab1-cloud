@@ -1,0 +1,12 @@
+tags:
+  - Trainer Schedule
+summary: "Видалити робочий день тренера"
+parameters:
+  - name: schedule_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  204:
+    description: "Розклад видалено"

@@ -1,0 +1,21 @@
+tags:
+  - Trainer Schedule
+summary: "Отримати розклад всіх тренерів"
+description: "Показує в які дні працює кожен тренер"
+responses:
+  200:
+    description: "Розклад тренерів"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          schedule_id:
+            type: integer
+            example: 1
+          trainer_id:
+            type: integer
+            example: 1
+          day_of_week:
+            type: string
+            example: "Monday"

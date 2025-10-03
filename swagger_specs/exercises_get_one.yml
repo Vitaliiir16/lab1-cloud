@@ -1,0 +1,21 @@
+tags:
+  - Exercises
+summary: "Отримати вправу за ID"
+parameters:
+  - name: exercise_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  200:
+    description: "Вправа знайдена"
+    schema:
+      type: object
+      properties:
+        exercise_id:
+          type: integer
+        exercise_name:
+          type: string
+        workout_program_id:
+          type: integer

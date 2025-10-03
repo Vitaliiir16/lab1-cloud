@@ -1,0 +1,21 @@
+tags:
+  - Exercises
+summary: "Створити нову вправу"
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - exercise_name
+      properties:
+        exercise_name:
+          type: string
+          example: "Присідання"
+        workout_program_id:
+          type: integer
+          example: 1
+responses:
+  201:
+    description: "Вправу створено"

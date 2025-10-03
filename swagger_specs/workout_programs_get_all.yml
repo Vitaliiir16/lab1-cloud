@@ -1,0 +1,20 @@
+tags:
+  - Workout Programs
+summary: "Отримати всі програми тренувань"
+responses:
+  200:
+    description: "Список програм тренувань"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          workout_program_id:
+            type: integer
+            example: 1
+          program_name:
+            type: string
+            example: "Beginner Strength"
+          trainer_id:
+            type: integer
+            example: 1

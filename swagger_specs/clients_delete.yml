@@ -1,0 +1,16 @@
+tags:
+  - Clients
+summary: "Видалити клієнта"
+description: "Видаляє клієнта з системи за ID"
+parameters:
+  - name: client_id
+    in: path
+    type: integer
+    required: true
+    description: "ID клієнта для видалення"
+    example: 1
+responses:
+  204:
+    description: "Клієнта видалено"
+  404:
+    description: "Клієнт не знайдений"

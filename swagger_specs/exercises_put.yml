@@ -1,0 +1,22 @@
+tags:
+  - Exercises
+summary: "Оновити вправу"
+parameters:
+  - name: exercise_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        exercise_name:
+          type: string
+        workout_program_id:
+          type: integer
+responses:
+  200:
+    description: "Вправу оновлено"

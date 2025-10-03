@@ -1,0 +1,25 @@
+tags:
+  - Exercise-Equipment Relations
+summary: "Отримати обладнання для конкретної вправи"
+description: "Показує список обладнання необхідного для виконання вправи"
+parameters:
+  - name: exercise_id
+    in: path
+    type: integer
+    required: true
+    description: "ID вправи"
+    example: 1
+responses:
+  200:
+    description: "Список обладнання"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          equipment_id:
+            type: integer
+          equipment_name:
+            type: string
+  404:
+    description: "Вправу не знайдено"

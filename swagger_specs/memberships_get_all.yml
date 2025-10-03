@@ -1,0 +1,28 @@
+tags:
+  - Memberships
+summary: "Отримати всі абонементи"
+responses:
+  200:
+    description: "Список абонементів"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          membership_id:
+            type: integer
+            example: 1
+          client_id:
+            type: integer
+            example: 1
+          membership_type:
+            type: string
+            example: "Gold"
+          start_date:
+            type: string
+            format: date
+            example: "2023-10-20"
+          end_date:
+            type: string
+            format: date
+            example: "2024-10-20"

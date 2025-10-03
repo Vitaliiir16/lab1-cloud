@@ -1,0 +1,19 @@
+tags:
+  - Equipment
+summary: "Отримати обладнання за ID"
+parameters:
+  - name: equipment_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  200:
+    description: "Обладнання знайдено"
+    schema:
+      type: object
+      properties:
+        equipment_id:
+          type: integer
+        equipment_name:
+          type: string

@@ -1,0 +1,23 @@
+tags:
+  - Services
+summary: "Отримати послугу за ID"
+parameters:
+  - name: service_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  200:
+    description: "Послуга знайдена"
+    schema:
+      type: object
+      properties:
+        service_id:
+          type: integer
+        service_name:
+          type: string
+        price:
+          type: number
+  404:
+    description: "Послуга не знайдена"

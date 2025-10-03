@@ -1,0 +1,25 @@
+tags:
+  - Memberships
+summary: "Оновити абонемент"
+parameters:
+  - name: membership_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        membership_type:
+          type: string
+        start_date:
+          type: string
+        end_date:
+          type: string
+responses:
+  200:
+    description: "Абонемент оновлено"
+

@@ -1,0 +1,33 @@
+tags:
+  - Service Schedule
+summary: "Додати новий запис розкладу"
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - service_id
+        - day_of_week
+        - open_time
+        - close_time
+      properties:
+        service_id:
+          type: integer
+          example: 1
+        day_of_week:
+          type: string
+          enum: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+          example: "Monday"
+        open_time:
+          type: string
+          format: time
+          example: "09:00:00"
+        close_time:
+          type: string
+          format: time
+          example: "18:00:00"
+responses:
+  201:
+    description: "Розклад створено"

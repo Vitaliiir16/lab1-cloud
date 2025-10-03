@@ -1,0 +1,26 @@
+tags:
+  - Trainers
+summary: "Створити нового тренера"
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - name
+        - surname
+        - phone_number
+      properties:
+        name:
+          type: string
+          example: "Олег"
+        surname:
+          type: string
+          example: "Коваленко"
+        phone_number:
+          type: string
+          example: "380671234567"
+responses:
+  201:
+    description: "Тренер створений"

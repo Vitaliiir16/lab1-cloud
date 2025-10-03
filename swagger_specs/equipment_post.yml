@@ -1,0 +1,18 @@
+tags:
+  - Equipment
+summary: "Додати нове обладнання"
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - equipment_name
+      properties:
+        equipment_name:
+          type: string
+          example: "Еліптичний тренажер"
+responses:
+  201:
+    description: "Обладнання додано"

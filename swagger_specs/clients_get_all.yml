@@ -1,0 +1,28 @@
+tags:
+  - Clients
+summary: "Отримати список всіх клієнтів"
+description: "Повертає повний список клієнтів фітнес-клубу"
+responses:
+  200:
+    description: "Успішно отримано список"
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          client_id:
+            type: integer
+            example: 1
+          name:
+            type: string
+            example: "Petro"
+          surname:
+            type: string
+            example: "Mostavchuk"
+          phone_number:
+            type: string
+            example: "123-456-7891"
+          trainer_id:
+            type: integer
+            example: 1
+

@@ -1,0 +1,40 @@
+tags:
+  - Clients
+summary: "Отримати клієнта за ID"
+description: "Повертає детальну інформацію про конкретного клієнта"
+parameters:
+  - name: client_id
+    in: path
+    type: integer
+    required: true
+    description: "Унікальний ідентифікатор клієнта"
+    example: 1
+responses:
+  200:
+    description: "Успішно знайдено клієнта"
+    schema:
+      type: object
+      properties:
+        client_id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Іван"
+        surname:
+          type: string
+          example: "Петренко"
+        phone_number:
+          type: string
+          example: "+380501234567"
+        email:
+          type: string
+          example: "ivan@example.com"
+        date_of_birth:
+          type: string
+          format: date
+          example: "1990-05-15"
+  404:
+    description: "Клієнта не знайдено"
+  500:
+    description: "Помилка сервера"

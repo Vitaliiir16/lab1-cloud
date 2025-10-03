@@ -1,0 +1,20 @@
+tags:
+  - Equipment
+summary: "Оновити обладнання"
+parameters:
+  - name: equipment_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        equipment_name:
+          type: string
+responses:
+  200:
+    description: "Обладнання оновлено"

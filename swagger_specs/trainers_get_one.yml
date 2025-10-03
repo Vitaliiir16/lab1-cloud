@@ -1,0 +1,25 @@
+tags:
+  - Trainers
+summary: "Отримати тренера за ID"
+parameters:
+  - name: trainer_id
+    in: path
+    type: integer
+    required: true
+    example: 1
+responses:
+  200:
+    description: "Тренер знайдений"
+    schema:
+      type: object
+      properties:
+        trainer_id:
+          type: integer
+        name:
+          type: string
+        surname:
+          type: string
+        phone_number:
+          type: string
+  404:
+    description: "Тренер не знайдений"
