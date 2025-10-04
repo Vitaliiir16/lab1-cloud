@@ -13,3 +13,6 @@ class WorkoutProgramsService:
 
     def delete(self, workout_program_id):
         self.dao.delete(workout_program_id)
+    
+    def get_by_id(self, workout_program_id):
+        return self.dao.get_by_id(workout_program_id)

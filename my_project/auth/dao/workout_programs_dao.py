@@ -32,3 +32,10 @@ class WorkoutProgramsDAO:
         cursor.execute("DELETE FROM workout_programs WHERE workout_program_id = %s", (workout_program_id,))
         self.db.connection.commit()
         cursor.close()
+
+    def get_by_id(self, workout_program_id):
+        cursor = self.db.connection.cursor()
+        cursor.execute("SELECT * FROM workout_programs WHERE workout_program_id = %s", (workout_program_id,))
+        result = cursor.fetchone()
+        cursor.close()
+        return result

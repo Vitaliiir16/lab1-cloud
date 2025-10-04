@@ -16,3 +16,6 @@ class ExercisesService:
 
     def add_exercise_equipment(self, exercise_name, equipment_name):
         self.dao.add_exercise_equipment(exercise_name, equipment_name)
+    
+    def get_by_id(self, exercise_id):
+        return self.dao.get_by_id(exercise_id)

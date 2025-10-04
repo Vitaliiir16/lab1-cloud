@@ -44,3 +44,10 @@ class EquipmentDAO:
         cursor.callproc('insert_multiple_equipment')
         self.db.connection.commit()
         cursor.close()
+
+    def get_by_id(self, equipment_id):
+        cursor = self.db.connection.cursor()
+        cursor.execute("SELECT * FROM equipment WHERE equipment_id = %s", (equipment_id,))
+        result = cursor.fetchone()
+        cursor.close()
+        return result

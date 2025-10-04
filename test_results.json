@@ -1,0 +1,87 @@
+{
+  "passed": [
+    "http://34.116.176.94:8080/api/v1/clients",
+    "http://34.116.176.94:8080/api/v1/trainers",
+    "http://34.116.176.94:8080/api/v1/services",
+    "http://34.116.176.94:8080/api/v1/exercises",
+    "http://34.116.176.94:8080/api/v1/memberships",
+    "http://34.116.176.94:8080/api/v1/equipment",
+    "http://34.116.176.94:8080/api/v1/workout-programs",
+    "http://34.116.176.94:8080/api/v1/exercise-equipment",
+    "http://34.116.176.94:8080/api/v1/trainer-schedules"
+  ],
+  "failed": [
+    {
+      "url": "http://34.116.176.94:8080/api/v1/clients/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/trainers/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/trainers/1/clients",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/services/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/exercises/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/exercises/1/equipment",
+      "status": 500,
+      "error": "{\"error\":\"0\"}\n"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/memberships/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/equipment/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/workout-programs/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/exercise-equipment/equipment/1/exercises",
+      "status": 500,
+      "error": "{\"error\":\"0\"}\n"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/exercise-equipment/exercises-with-equipment",
+      "status": 500,
+      "error": "{\"error\":\"0\"}\n"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/schedules",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/schedules/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    },
+    {
+      "url": "http://34.116.176.94:8080/api/v1/trainer-schedules/1",
+      "status": 500,
+      "error": "<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the s"
+    }
+  ],
+  "total": 23,
+  "pass_rate": "39.1%"
+}

@@ -48,3 +48,10 @@ class ServicesDAO:
             return None
         finally:
             cursor.close()
+
+    def get_by_id(self, service_id):
+        cursor = self.db.connection.cursor()
+        cursor.execute("SELECT * FROM services WHERE service_id = %s", (service_id,))
+        result = cursor.fetchone()
+        cursor.close()
+        return result

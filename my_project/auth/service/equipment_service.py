@@ -19,3 +19,6 @@ class EquipmentService:
 
     def insert_multiple_equipment(self):
         self.dao.insert_multiple_equipment()
+    
+    def get_by_id(self, equipment_id):
+        return self.dao.get_by_id(equipment_id)

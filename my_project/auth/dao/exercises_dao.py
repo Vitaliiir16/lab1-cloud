@@ -44,7 +44,6 @@ class ExercisesDAO:
         cursor.execute(query, (equipment_id,))
         results = cursor.fetchall()
         cursor.close()
-
         return [{"exercise_id": row[0], "exercise_name": row[1]} for row in results]
 
     def get_equipment_by_exercise(self, exercise_id):
@@ -71,3 +70,10 @@ class ExercisesDAO:
         cursor.callproc('insert_multiple_equipment')
         self.db.connection.commit()
         cursor.close()
+
+    def get_by_id(self, exercise_id):
+        cursor = self.db.connection.cursor()
+        cursor.execute("SELECT * FROM exercises WHERE exercise_id = %s", (exercise_id,))
+        result = cursor.fetchone()
+        cursor.close()
+        return result

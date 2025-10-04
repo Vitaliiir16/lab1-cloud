@@ -13,3 +13,6 @@ class TrainerScheduleService:
 
     def delete(self, schedule_id):
         self.dao.delete(schedule_id)
+    
+    def get_by_id(self, schedule_id):
+        return self.dao.get_by_id(schedule_id)

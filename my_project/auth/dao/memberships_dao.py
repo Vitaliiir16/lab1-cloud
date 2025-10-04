@@ -17,3 +17,25 @@ class MembershipsDAO:
         )
         self.db.connection.commit()
         cursor.close()
+
+    def get_by_id(self, membership_id):
+        cursor = self.db.connection.cursor()
+        cursor.execute("SELECT * FROM memberships WHERE membership_id = %s", (membership_id,))
+        result = cursor.fetchone()
+        cursor.close()
+        return result
+
+    def update(self, membership_id, client_id, membership_type, start_date, end_date):
+        cursor = self.db.connection.cursor()
+        cursor.execute(
+            "UPDATE memberships SET client_id = %s, membership_type = %s, start_date = %s, end_date = %s WHERE membership_id = %s",
+            (client_id, membership_type, start_date, end_date, membership_id)
+        )
+        self.db.connection.commit()
+        cursor.close()
+
+    def delete(self, membership_id):
+        cursor = self.db.connection.cursor()
+        cursor.execute("DELETE FROM memberships WHERE membership_id = %s", (membership_id,))
+        self.db.connection.commit()
+        cursor.close()

@@ -13,3 +13,9 @@ class TrainersService:
 
     def delete(self, trainer_id):
         self.dao.delete(trainer_id)
+
+    def get_trainer_by_id(self, trainer_id):
+        return self.dao.get_trainer_by_id(trainer_id)
+    
+    def get_by_id(self, trainer_id):
+        return self.get_trainer_by_id(trainer_id)
