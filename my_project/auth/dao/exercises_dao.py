@@ -44,7 +44,7 @@ class ExercisesDAO:
         cursor.execute(query, (equipment_id,))
         results = cursor.fetchall()
         cursor.close()
-        return [{"exercise_id": row[0], "exercise_name": row[1]} for row in results]
+        return results
 
     def get_equipment_by_exercise(self, exercise_id):
         query = """
@@ -57,7 +57,7 @@ class ExercisesDAO:
         cursor.execute(query, (exercise_id,))
         results = cursor.fetchall()
         cursor.close()
-        return [{"equipment_id": row[0], "equipment_name": row[1]} for row in results]
+        return results
 
     def add_exercise_equipment(self, exercise_name, equipment_name):
         cursor = self.db.connection.cursor()

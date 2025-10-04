@@ -32,3 +32,10 @@ class TrainerScheduleDAO:
         cursor.execute("DELETE FROM trainer_schedule WHERE schedule_id = %s", (schedule_id,))
         self.db.connection.commit()
         cursor.close()
+
+    def get_by_id(self, schedule_id):
+        cursor = self.db.connection.cursor()
+        cursor.execute("SELECT * FROM trainer_schedule WHERE schedule_id = %s", (schedule_id,))
+        result = cursor.fetchone()
+        cursor.close()
+        return result

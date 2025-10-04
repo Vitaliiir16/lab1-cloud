@@ -38,8 +38,7 @@ class ExerciseEquipmentDAO:
         cursor.execute(query, (equipment_id,))
         results = cursor.fetchall()
         cursor.close()
-
-        return [{"exercise_id": row[0], "exercise_name": row[1]} for row in results]
+        return results
 
     def get_exercises_with_equipment(self):
         query = """
@@ -53,12 +52,13 @@ class ExerciseEquipmentDAO:
         cursor.execute(query)
         results = cursor.fetchall()
         cursor.close()
+        
         exercises = {}
         for row in results:
-            exercise_id = row[0]
-            exercise_name = row[1]
-            equipment_id = row[2]
-            equipment_name = row[3]
+            exercise_id = row['exercise_id']
+            exercise_name = row['exercise_name']
+            equipment_id = row['equipment_id']
+            equipment_name = row['equipment_name']
 
             if exercise_id not in exercises:
                 exercises[exercise_id] = {
