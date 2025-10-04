@@ -43,12 +43,4 @@ class TrainersDAO:
         cursor.execute(query, (trainer_id,))
         result = cursor.fetchone()
         cursor.close()
-
-        if result:
-            return {
-                "trainer_id": result[0],
-                "name": result[1],
-                "surname": result[2],
-                "phone_number": result[3],
-            }
-        return None
+        return result

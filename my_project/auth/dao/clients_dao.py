@@ -39,15 +39,7 @@ class ClientsDAO:
         cursor.execute(query, (client_id,))
         result = cursor.fetchone()
         cursor.close()
-        if result:
-            return {
-                "client_id": result[0],
-                "name": result[1],
-                "surname": result[2],
-                "phone_number": result[3],
-                "trainer_id": result[4],
-            }
-        return None
+        return result
 
     def patch(self, client_id, updates):
         fields = []
@@ -76,16 +68,7 @@ class ClientsDAO:
         cursor.execute(query, (trainer_id,))
         results = cursor.fetchall()
         cursor.close()
-
-        return [
-            {
-                "client_id": row[0],
-                "name": row[1],
-                "surname": row[2],
-                "phone_number": row[3],
-            }
-            for row in results
-        ]
+        return results
 
     def split_table_randomly(self, parent_table):
         cursor = self.db.connection.cursor()
