@@ -1,7 +1,9 @@
 from flask import Blueprint, jsonify, request
+from flasgger import swag_from
 from my_project.auth.dao.trainers_dao import TrainersDAO
 from my_project.auth.service.trainers_service import TrainersService
 from my_project.auth.dao.clients_dao import ClientsDAO
+
 
 def create_blueprint(mysql):
     blueprint = Blueprint("trainers", __name__)
@@ -10,29 +12,63 @@ def create_blueprint(mysql):
     clients_dao = ClientsDAO(mysql)
 
     @blueprint.route("/", methods=["GET"])
+    @swag_from('swagger_specs/trainers_get_all.yml')
     def get_all():
         trainers = service.get_all()
         return jsonify(trainers)
 
     @blueprint.route("/", methods=["POST"])
+    @swag_from('swagger_specs/trainers_post.yml')
     def add():
         data = request.json
         service.add(data["name"], data["surname"], data["phone_number"])
         return jsonify({"message": "Trainer added successfully"}), 201
 
+    @blueprint.route("/<int:trainer_id>", methods=["GET"])
+    @swag_from('swagger_specs/trainers_get_one.yml')
+    def get_by_id(trainer_id):
+        """
+        Отримати тренера за ID
+        ---
+        tags:
+          - Trainers
+        """
+        trainer = service.get_by_id(trainer_id)
+        if trainer is None:
+            return jsonify({"error": "Trainer not found"}), 404
+        return jsonify(trainer)
+
     @blueprint.route("/<int:trainer_id>", methods=["PUT"])
+    @swag_from('swagger_specs/trainers_put.yml')
     def update(trainer_id):
         data = request.json
         service.update(trainer_id, data["name"], data["surname"], data["phone_number"])
         return jsonify({"message": "Trainer updated successfully"}), 200
 
     @blueprint.route("/<int:trainer_id>", methods=["DELETE"])
+    @swag_from('swagger_specs/trainers_delete.yml')
     def delete(trainer_id):
         service.delete(trainer_id)
         return jsonify({"message": "Trainer deleted successfully"}), 200
 
     @blueprint.route("/<int:trainer_id>/clients", methods=["GET"])
     def get_trainer_with_clients(trainer_id):
+        """
+        Отримати тренера з його клієнтами
+        ---
+        tags:
+          - Trainers
+        parameters:
+          - name: trainer_id
+            in: path
+            type: integer
+            required: true
+        responses:
+          200:
+            description: Тренер з клієнтами
+          404:
+            description: Тренер не знайдений
+        """
         trainer = dao.get_trainer_by_id(trainer_id)
         if trainer is None:
             return jsonify({"error": "Trainer not found"}), 404
