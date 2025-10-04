@@ -1,3 +1,4 @@
+# CI/CD Test - автодеплой працює!
 from flask import Flask
 from flask_mysqldb import MySQL
 from flasgger import Swagger
