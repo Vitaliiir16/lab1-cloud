@@ -1,4 +1,4 @@
-# CI/CD Test - автодеплой працює!
+#перевірка автоматичного деплою та налаштувань CI CD
 from flask import Flask
 from flask_mysqldb import MySQL
 from flasgger import Swagger
@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 
-# MySQL Configuration
+
 app.config['MYSQL_HOST'] = os.getenv('DB_HOST', 'localhost')
 app.config['MYSQL_USER'] = os.getenv('DB_USER', 'root')
 app.config['MYSQL_PASSWORD'] = os.getenv('DB_PASS', '')
@@ -15,7 +15,7 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 
-# Swagger Configuration
+
 swagger_config = {
     "headers": [],
     "specs": [
@@ -60,7 +60,7 @@ swagger_template = {
 
 swagger = Swagger(app, config=swagger_config, template=swagger_template)
 
-# Import and create blueprints
+
 from my_project.auth.controller import clients_controller
 from my_project.auth.controller import trainers_controller
 from my_project.auth.controller import services_controller
@@ -72,7 +72,7 @@ from my_project.auth.controller import exercise_equipment_controller
 from my_project.auth.controller import schedules_controller
 from my_project.auth.controller import trainer_schedule_controller
 
-# Create blueprints with MySQL
+
 clients_bp = clients_controller.create_blueprint(mysql)
 trainers_bp = trainers_controller.create_blueprint(mysql)
 services_bp = services_controller.create_blueprint(mysql)
@@ -84,7 +84,7 @@ exercise_equipment_bp = exercise_equipment_controller.create_blueprint(mysql)
 schedules_bp = schedules_controller.create_blueprint(mysql)
 trainer_schedule_bp = trainer_schedule_controller.create_blueprint(mysql)
 
-# Register blueprints
+
 app.register_blueprint(clients_bp, url_prefix='/api/v1/clients')
 app.register_blueprint(trainers_bp, url_prefix='/api/v1/trainers')
 app.register_blueprint(services_bp, url_prefix='/api/v1/services')
