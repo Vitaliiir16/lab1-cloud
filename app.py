@@ -1,4 +1,4 @@
-#перевірка автоматичного деплою та налаштувань CI CD
+#перевірка автоматичного деплою та налаштувань CI CD lab1 cloud
 from flask import Flask
 from flask_mysqldb import MySQL
 from flasgger import Swagger
