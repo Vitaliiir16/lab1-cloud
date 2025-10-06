@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-10-05T02:11:56.837481",
+  "total_tests": 35,
+  "passed": 34,
+  "failed": 1,
+  "pass_rate": "97.1%",
+  "created_ids": {
+    "clients": [],
+    "trainers": [],
+    "services": [],
+    "exercises": [],
+    "memberships": [],
+    "equipment": [],
+    "workout_programs": [],
+    "schedules": [],
+    "trainer_schedules": []
+  }
+}
